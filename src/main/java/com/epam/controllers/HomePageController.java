@@ -7,9 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomePageController {
     @GetMapping("/")
-    public ModelAndView index(ModelAndView model) {
-        model.setViewName("index");
-        model.addObject("message", "Hello World!");
+    public ModelAndView getHomePage(ModelAndView model) {
+        model.setViewName("homepage");
         return model;
     }
 }
