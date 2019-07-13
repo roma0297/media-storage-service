@@ -10,6 +10,8 @@
   <mvc:annotation-driven/>
   <context:component-scan base-package="com.epam"/>
 
+  <mvc:resources mapping="/icons/**" location="/WEB-INF/templates/icons/"/>
+
   <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
     <property name="prefix" value="/WEB-INF/templates/"/>
     <property name="suffix" value=".html"/>
