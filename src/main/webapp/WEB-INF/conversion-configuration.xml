@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" >
+    <property name="converters">
+      <set>
+        <bean class="com.epam.converters.AudioBooksAlbumConverter"/>
+        <bean class="com.epam.converters.MusicAlbumConverter"/>
+        <bean class="com.epam.converters.PicturesAlbumConverter"/>
+      </set>
+    </property>
+  </bean>
+
+
+</beans>

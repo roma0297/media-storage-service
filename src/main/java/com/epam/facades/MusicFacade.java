@@ -1,8 +1,8 @@
 package com.epam.facades;
 
-import com.epam.converters.MusicAlbumConverter;
 import com.epam.dto.MusicAlbumDto;
 import com.epam.services.MusicService;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -14,13 +14,12 @@ public class MusicFacade {
 
     @Resource
     private MusicService musicService;
-
     @Resource
-    private MusicAlbumConverter musicAlbumConverter;
+    private ConversionService conversionService;
 
     public List<MusicAlbumDto> getMusicAlbums(){
         return musicService.getMusicAlbums().stream()
-                .map(musicAlbums -> musicAlbumConverter.convert(musicAlbums))
+                .map(musicAlbums -> conversionService.convert(musicAlbums, MusicAlbumDto.class))
                 .collect(Collectors.toList());
     }
 }
