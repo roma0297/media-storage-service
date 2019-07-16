@@ -1,8 +1,8 @@
 package com.epam.facades;
 
-import com.epam.converters.AudioBooksAlbumConverter;
 import com.epam.dto.AudioBooksAlbumDto;
 import com.epam.services.AudioBooksService;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -14,13 +14,12 @@ public class AudioBooksFacade {
 
     @Resource
     private AudioBooksService audioBooksService;
-
     @Resource
-    private AudioBooksAlbumConverter audioBooksAlbumConverter;
+    private ConversionService conversionService;
 
     public List<AudioBooksAlbumDto> getAudioBooksAlbums(){
         return audioBooksService.getAudioBooksAlbums().stream()
-                .map(audioBooksAlbums -> audioBooksAlbumConverter.convert(audioBooksAlbums))
+                .map(audioBooksAlbums -> conversionService.convert(audioBooksAlbums, AudioBooksAlbumDto.class))
                 .collect(Collectors.toList());
     }
 }
