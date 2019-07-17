@@ -1,20 +1,26 @@
 package com.epam.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "PictureAlbumModel")
 public class PictureAlbumModel extends MediaProductModel {
-    private Integer index;
+    private Integer rank;
 
-    public PictureAlbumModel(Integer id, String name, String description, Integer index, LocalDateTime createDateTime) {
+    public PictureAlbumModel(Integer id, String name, String description, Integer rank, LocalDateTime createDateTime) {
         super(id, name, description, createDateTime);
-        this.index = index;
+        this.rank = rank;
     }
 
-    public Integer getIndex() {
-        return index;
+    @Column(name = "rank")
+    public Integer getRank() {
+        return rank;
     }
 
-    public void setIndex(Integer index) {
-        this.index = index;
+    public void setRank(Integer rank) {
+        this.rank = rank;
     }
 }

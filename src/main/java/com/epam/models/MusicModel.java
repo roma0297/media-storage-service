@@ -1,18 +1,18 @@
 package com.epam.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "music")
 public class MusicModel {
     private Integer id;
-    private Integer index;
+    private Integer rank;
     private String originalName;
     private String fileSystemPath;
 
-    public MusicModel(Integer id, Integer index, String originalName, String fileSystemPath) {
-        this.id = id;
-        this.index = index;
-        this.originalName = originalName;
-        this.fileSystemPath = fileSystemPath;
-    }
-
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -21,14 +21,16 @@ public class MusicModel {
         this.id = id;
     }
 
-    public Integer getIndex() {
-        return index;
+    @Column(name = "rank")
+    public Integer getRank() {
+        return rank;
     }
 
-    public void setIndex(Integer index) {
-        this.index = index;
+    public void setRank(Integer rank) {
+        this.rank = rank;
     }
 
+    @Column(name = "originalName")
     public String getOriginalName() {
         return originalName;
     }
@@ -37,6 +39,7 @@ public class MusicModel {
         this.originalName = originalName;
     }
 
+    @Column(name = "fileSystemPath")
     public String getFileSystemPath() {
         return fileSystemPath;
     }

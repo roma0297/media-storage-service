@@ -1,27 +1,34 @@
 package com.epam.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "AudioBooksAlbum")
 public class AudioBooksAlbumModel extends MediaProductModel {
-    private Integer index;
+    private Integer rank;
     private String artist;
     private String writer;
 
-    public AudioBooksAlbumModel(Integer id, String name, String artist, String writer, String description, Integer index, LocalDateTime createDateTime) {
+    public AudioBooksAlbumModel(Integer id, String name, String artist, String writer, String description, Integer rank, LocalDateTime createDateTime) {
         super(id, name, description, createDateTime);
-        this.index = index;
+        this.rank = rank;
         this.artist = artist;
         this.writer = writer;
     }
 
-    public Integer getIndex() {
-        return index;
+    @Column(name = "rank")
+    public Integer getRank() {
+        return rank;
     }
 
-    public void setIndex(Integer index) {
-        this.index = index;
+    public void setRank(Integer rank) {
+        this.rank = rank;
     }
 
+    @Column(name = "artist")
     public String getArtist(){
         return artist;
     }
@@ -30,6 +37,7 @@ public class AudioBooksAlbumModel extends MediaProductModel {
         this.artist = artist;
     }
 
+    @Column(name = "writer")
     public String getWriter() {
         return writer;
     }
