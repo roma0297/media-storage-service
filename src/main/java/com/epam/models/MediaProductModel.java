@@ -1,7 +1,9 @@
 package com.epam.models;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@MappedSuperclass
 public abstract class MediaProductModel {
     private Integer id;
     private String name;
@@ -15,6 +17,9 @@ public abstract class MediaProductModel {
         this.createDateTime = createDateTime;
     }
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -23,6 +28,7 @@ public abstract class MediaProductModel {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -31,6 +37,7 @@ public abstract class MediaProductModel {
         this.name = name;
     }
 
+    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -39,6 +46,7 @@ public abstract class MediaProductModel {
         this.description = description;
     }
 
+    @Column(name = "createDateTime")
     public LocalDateTime getCreateDateTime() {
         return createDateTime;
     }

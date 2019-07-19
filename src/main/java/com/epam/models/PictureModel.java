@@ -1,5 +1,9 @@
 package com.epam.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "picture")
 public class PictureModel {
     private Integer id;
     private Integer albumId;
@@ -13,6 +17,9 @@ public class PictureModel {
         this.fileSystemPath = fileSystemPath;
     }
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -21,6 +28,7 @@ public class PictureModel {
         this.id = id;
     }
 
+    @Column(name = "albumId")
     public Integer getAlbumId() {
         return albumId;
     }
@@ -29,6 +37,7 @@ public class PictureModel {
         this.albumId = albumId;
     }
 
+    @Column(name = "originalName")
     public String getOriginalName() {
         return originalName;
     }
@@ -37,6 +46,7 @@ public class PictureModel {
         this.originalName = originalName;
     }
 
+    @Column(name = "fileSystemPath")
     public String getFileSystemPath() {
         return fileSystemPath;
     }
