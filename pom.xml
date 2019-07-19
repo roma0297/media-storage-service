@@ -21,6 +21,7 @@
     <commons-dbcp.version>1.4</commons-dbcp.version>
     <jaxb-api.version>2.2.11</jaxb-api.version>
     <javassist.version>3.25.0-GA</javassist.version>
+    <thymeleaf-springsecurity.version>3.0.4.RELEASE</thymeleaf-springsecurity.version>
   </properties>
 
   <dependencies>
@@ -100,6 +101,11 @@
       <groupId>org.javassist</groupId>
       <artifactId>javassist</artifactId>
       <version>${javassist.version}</version>
+    </dependency>
+    <dependency>  
+      <groupId>org.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+      <version>${thymeleaf-springsecurity.version}</version>
     </dependency>
   </dependencies>
 
