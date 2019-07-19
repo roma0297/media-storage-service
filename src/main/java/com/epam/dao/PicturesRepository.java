@@ -1,11 +1,8 @@
 package com.epam.dao;
 
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
-
 import com.epam.models.PictureAlbumModel;
-
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
