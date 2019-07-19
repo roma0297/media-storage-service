@@ -1,57 +1,26 @@
 package com.epam.models;
 
+import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
+@Builder
+@Getter
+@Setter
 public abstract class MediaProductModel {
-    private Integer id;
-    private String name;
-    private String description;
-    private LocalDateTime createDateTime;
-
-    public MediaProductModel(Integer id, String name, String description, LocalDateTime createDateTime) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.createDateTime = createDateTime;
-    }
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private Integer id;
 
     @Column(name = "name")
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String name;
 
     @Column(name = "description")
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    private String description;
 
     @Column(name = "createDateTime")
-    public LocalDateTime getCreateDateTime() {
-        return createDateTime;
-    }
-
-    public void setCreateDateTime(LocalDateTime createDateTime) {
-        this.createDateTime = createDateTime;
-    }
+    private LocalDateTime createDateTime;
 }
