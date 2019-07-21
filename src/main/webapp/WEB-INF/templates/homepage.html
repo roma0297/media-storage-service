@@ -11,9 +11,8 @@
 <body>
 <div th:replace="nav :: nav"></div>
 <div class="container jumbotron">
-  <h1 class="display-3">Media Storage Service</h1>
-  <p class="lead">This project was created for educational purposes.
-    The goal of the project is to familiarize students with the Spring framework and create a web storage.</p>
+  <h1 class="display-3" th:text="#{homepage.headline}"></h1>
+  <p class="lead" th:text="#{homepage.mainInfo}"></p>
   <p><a class="btn btn-lg btn-success" href="https://github.com/roma0297/media-storage-service"
         role="button">Github</a></p>
 </div>
