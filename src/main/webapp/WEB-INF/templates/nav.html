@@ -22,23 +22,23 @@
       <ul class="navbar-nav">
         <div sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
         <li class="nav-item">
-          <a class="nav-link" href="/pictures">Pictures</a>
+          <a class="nav-link" href="/pictures" th:text="#{nav.pictures}"></a>
         </li>
         </div>
         <div sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
         <li class="nav-item">
-          <a class="nav-link" href="/video">Video</a>
+          <a class="nav-link" href="/video" th:text="#{nav.video}"></a>
         </li>
         </div>
         <div sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-             aria-expanded="false">
+             aria-expanded="false" th:text="#{nav.audio}">
             Audio
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/audio/music">Music</a>
-            <a class="dropdown-item" href="/audio/audiobooks">Audio Books</a>
+            <a class="dropdown-item" href="/audio/music" th:text="#{nav.audio.music}"></a>
+            <a class="dropdown-item" href="/audio/audiobooks" th:text="#{nav.audio.audiobooks}"></a>
           </div>
         </li>
         </div>
@@ -46,11 +46,20 @@
     </div>
     <div class="flex-row navbar-expand">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Sing in</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false" th:text="#{nav.lang}">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="?lang=en" th:text="#{nav.lang.en}"></a>
+            <a class="dropdown-item" href="?lang=ru" th:text="#{nav.lang.ru}"></a>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/singup">Sing up</a>
+          <a class="nav-link" href="/login" th:text="#{nav.singIn}"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/singup" th:text="#{nav.singUp}"></a>
         </li>
       </ul>
     </div>
