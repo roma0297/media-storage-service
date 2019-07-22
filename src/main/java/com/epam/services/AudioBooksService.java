@@ -1,6 +1,6 @@
 package com.epam.services;
 
-import com.epam.models.AudioBooksAlbumModel;
+import com.epam.models.AudioBookModel;
 import com.epam.dao.AudioBooksRepository;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -12,7 +12,7 @@ public class AudioBooksService {
     @Resource
     private AudioBooksRepository audioBooksRepository;
 
-    public List<AudioBooksAlbumModel> getAudioBooksAlbums() {
+    public List<AudioBookModel> getAudioBooksAlbums() {
         return audioBooksRepository.getAudioBooksAlbum();
     }
 }

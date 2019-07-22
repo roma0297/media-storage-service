@@ -5,7 +5,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "music_tracks")
-@Builder
 @Getter
 @Setter
 public class MusicModel {
