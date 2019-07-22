@@ -8,22 +8,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "MusicAlbumModel")
 public class MusicAlbumModel extends MediaProductModel {
-    private Integer rank;
     private String artist;
 
     public MusicAlbumModel(Integer id, String name, String artist, String description, Integer rank, LocalDateTime createDateTime) {
-        super(id, name, description, createDateTime);
-        this.rank = rank;
+        super(id, name, description, rank, createDateTime);
         this.artist = artist;
-    }
-
-    @Column(name = "rank")
-    public Integer getRank() {
-        return rank;
-    }
-
-    public void setRank(Integer rank) {
-        this.rank = rank;
     }
 
     @Column(name = "artist")

@@ -1,12 +1,22 @@
 package com.epam.dto;
 
 public class PictureAlbumDto {
+    private Integer id;
     private String name;
-    private  String description;
+    private String description;
 
-    public PictureAlbumDto(String name, String description) {
+    public PictureAlbumDto(Integer id, String name, String description) {
+        this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

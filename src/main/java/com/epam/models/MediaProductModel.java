@@ -8,9 +8,10 @@ public abstract class MediaProductModel {
     private Integer id;
     private String name;
     private String description;
+    private Integer rank;
     private LocalDateTime createDateTime;
 
-    public MediaProductModel(Integer id, String name, String description, LocalDateTime createDateTime) {
+    public MediaProductModel(Integer id, String name, String description, Integer rank, LocalDateTime createDateTime) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -44,6 +45,15 @@ public abstract class MediaProductModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Column(name = "rank")
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
     }
 
     @Column(name = "createDateTime")

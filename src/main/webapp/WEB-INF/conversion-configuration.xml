@@ -9,7 +9,8 @@
       <set>
         <bean class="com.epam.converters.AudioBooksAlbumConverter"/>
         <bean class="com.epam.converters.MusicAlbumConverter"/>
-        <bean class="com.epam.converters.PicturesAlbumConverter"/>
+        <bean class="com.epam.converters.PictureAlbumConverter"/>
+        <bean class="com.epam.converters.PictureConverter"/>
       </set>
     </property>
   </bean>

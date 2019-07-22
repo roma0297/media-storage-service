@@ -9,11 +9,11 @@
 
   <import resource="conversion-configuration.xml"/>
   <import resource="persistence-config.xml"/>
+  <import resource="security-config.xml"/>
 
   <mvc:annotation-driven/>
   <context:component-scan base-package="com.epam"/>
   <context:property-placeholder location="classpath:spring.properties"/>
-
 
   <mvc:resources mapping="/icons/**" location="/WEB-INF/templates/icons/"/>
 
@@ -37,7 +37,11 @@
   </bean>
 
   <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-    <property name="basename" value="classpath:messages" />
+    <property name="basenames">
+      <list>
+        <value>/WEB-INF/messages</value>
+      </list>
+    </property>
     <property name="defaultEncoding" value="UTF-8" />
     <property name="fileEncodings" value="UTF-8" />
   </bean>
@@ -52,4 +56,19 @@
     </bean>
   </mvc:interceptors>
 
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="20848820"/>
+  </bean>
+
+  <bean id="pictureStorageService" class="com.epam.services.MediaStorageService">
+    <property name="albumType" value="images"/>
+  </bean>
+
+  <bean id="audioStorageService" class="com.epam.services.MediaStorageService">
+    <property name="albumType" value="audio"/>
+  </bean>
+
+  <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+    <property name="validationMessageSource" ref="messageSource"/>
+  </bean>
 </beans>

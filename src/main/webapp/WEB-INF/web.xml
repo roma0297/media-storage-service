@@ -9,7 +9,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>/WEB-INF/web-config.xml, /WEB-INF/security-config.xml</param-value>
+      <param-value>/WEB-INF/web-config.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
@@ -17,6 +17,15 @@
   <servlet-mapping>
     <servlet-name>dispatcher-servlet</servlet-name>
     <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>file-servlet</servlet-name>
+    <servlet-class>com.epam.servlets.MediaFileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>file-servlet</servlet-name>
+    <url-pattern>/media/*</url-pattern>
   </servlet-mapping>
 
   <filter>

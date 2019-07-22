@@ -4,6 +4,11 @@ public class PictureModelDto {
     private String originalName;
     private String fileSystemPath;
 
+    public PictureModelDto(String originalName, String fileSystemPath) {
+        this.originalName = originalName;
+        this.fileSystemPath = fileSystemPath;
+    }
+
     public String getOriginalName() {
         return originalName;
     }
