@@ -10,10 +10,10 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "music_albums")
+@Table(name = "audio_books")
 @Getter
 @Setter
-public class MusicAlbumModel extends MediaProductModel {
+public class AudioBookModel extends MediaProductModel {
 
     @Column(name = "rank")
     private Integer rank;
@@ -21,10 +21,14 @@ public class MusicAlbumModel extends MediaProductModel {
     @Column(name = "artist")
     private String artist;
 
+    @Column(name = "writer")
+    private String writer;
+
     @Builder
-    public MusicAlbumModel(Integer id, String name, String description, LocalDateTime createDateTime, Integer rank, String artist) {
+    public AudioBookModel(Integer id, String name, String description, LocalDateTime createDateTime, Integer rank, String artist, String writer) {
         super(id, name, description, createDateTime);
         this.rank = rank;
         this.artist = artist;
+        this.writer = writer;
     }
 }

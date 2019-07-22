@@ -7,6 +7,9 @@ import org.springframework.core.convert.converter.Converter;
 public class PicturesAlbumConverter implements Converter<PictureAlbumModel, PictureAlbumDto> {
     @Override
     public PictureAlbumDto convert(PictureAlbumModel pictureAlbumModel) {
-        return new PictureAlbumDto(pictureAlbumModel.getName(), pictureAlbumModel.getDescription());
+        return PictureAlbumDto.builder()
+                .name(pictureAlbumModel.getName())
+                .description(pictureAlbumModel.getDescription())
+                .build();
     }
 }
