@@ -14,10 +14,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class AudioBookModel extends MediaProductModel {
-
-    @Column(name = "rank")
-    private Integer rank;
-
     @Column(name = "artist")
     private String artist;
 
@@ -26,8 +22,7 @@ public class AudioBookModel extends MediaProductModel {
 
     @Builder
     public AudioBookModel(Integer id, String name, String description, LocalDateTime createDateTime, Integer rank, String artist, String writer) {
-        super(id, name, description, createDateTime);
-        this.rank = rank;
+        super(id, name, description, rank, createDateTime);
         this.artist = artist;
         this.writer = writer;
     }

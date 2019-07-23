@@ -14,12 +14,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class PictureAlbumModel extends MediaProductModel {
-    @Column(name = "rank")
-    private Integer rank;
-
     @Builder
-    public PictureAlbumModel(Integer id, String name, String description, LocalDateTime createDateTime, Integer rank) {
-        super(id, name, description, createDateTime);
-        this.rank = rank;
+    public PictureAlbumModel(Integer id, String name, String description, Integer rank, LocalDateTime createDateTime) {
+        super(id, name, description, rank, createDateTime);
     }
 }

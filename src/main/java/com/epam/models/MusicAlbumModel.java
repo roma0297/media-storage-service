@@ -14,17 +14,12 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class MusicAlbumModel extends MediaProductModel {
-
-    @Column(name = "rank")
-    private Integer rank;
-
     @Column(name = "artist")
     private String artist;
 
     @Builder
     public MusicAlbumModel(Integer id, String name, String description, LocalDateTime createDateTime, Integer rank, String artist) {
-        super(id, name, description, createDateTime);
-        this.rank = rank;
+        super(id, name, description, rank, createDateTime);
         this.artist = artist;
     }
 }
