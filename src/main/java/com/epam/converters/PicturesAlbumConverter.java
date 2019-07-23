@@ -8,6 +8,7 @@ public class PicturesAlbumConverter implements Converter<PictureAlbumModel, Pict
     @Override
     public PictureAlbumDto convert(PictureAlbumModel pictureAlbumModel) {
         return PictureAlbumDto.builder()
+                .id(pictureAlbumModel.getId())
                 .name(pictureAlbumModel.getName())
                 .description(pictureAlbumModel.getDescription())
                 .build();

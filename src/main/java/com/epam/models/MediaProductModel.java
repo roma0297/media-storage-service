@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public abstract class MediaProductModel {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +26,9 @@ public abstract class MediaProductModel {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "rank")
+    private Integer rank;
 
     @Column(name = "createDateTime")
     private LocalDateTime createDateTime;

@@ -19,6 +19,16 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>file-servlet</servlet-name>
+    <servlet-class>com.epam.servlets.MediaFileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>file-servlet</servlet-name>
+    <url-pattern>/media/*</url-pattern>
+  </servlet-mapping>
+
+
   <filter>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>

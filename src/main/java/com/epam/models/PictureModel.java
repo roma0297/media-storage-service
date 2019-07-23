@@ -17,7 +17,6 @@ import javax.persistence.Table;
 @Getter
 @Setter
 public class PictureModel {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

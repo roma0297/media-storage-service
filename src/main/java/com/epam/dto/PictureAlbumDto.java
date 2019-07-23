@@ -6,6 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 public class PictureAlbumDto {
+    private Integer id;
     private String name;
     private String description;
 }
