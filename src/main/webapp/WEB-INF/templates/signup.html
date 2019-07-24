@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Media Storage Service Registration</title>
+</head>
+<body>
+<div th:replace="nav :: nav"></div>
+<form th:action="@{/signup}" th:object="${userForm}" method="post">
+  <p class="error-message"
+     th:if="${#fields.hasGlobalErrors()}"
+     th:each="error : ${#fields.errors('global')}"
+     th:text="${error}">Validation error</p>
+  <div class="container">
+    <div class="form-group row justify-content-center">
+      <label for="NewUsername" class="col-sm-3 col-form-label" th:text="#{registration.login}"></label>
+      <div class="col-sm-4">
+        <input type="text" size="30" class="form-control" id="NewUsername"
+               th:field="*{username}" th:placeholder="#{registration.login.placeholder}">
+        <p class="error-message"
+           th:each="error: ${#fields.errors('username')}"
+           th:text="${error}">Validation error</p>
+      </div>
+    </div>
+    <div class="form-group row justify-content-center">
+      <label for="NewEmail" class="col-sm-3 col-form-label" th:text="#{registration.email}"></label>
+      <div class="col-sm-4">
+        <input type="text" size="30" class="form-control" id="NewEmail"
+               th:field="*{email}" th:placeholder="#{registration.email.placeholder}">
+        <p class="error-message"
+           th:each="error: ${#fields.errors('email')}"
+           th:text="${error}">Validation error</p>
+      </div>
+    </div>
+    <div class="form-group row justify-content-center">
+      <label for="Password" class="col-sm-3 col-form-label" th:text="#{registration.password}"></label>
+      <div class="col-sm-4">
+        <input type="password" size="30" class="form-control" id="Password"
+               th:field="*{password}" th:placeholder="#{registration.password.placeholder}">
+        <p class="error-message"
+           th:each="error: ${#fields.errors('password')}"
+           th:text="${error}">Validation error</p>
+      </div>
+    </div>
+    <div class="form-group row justify-content-center">
+      <label for="ConfirmPassword" class="col-sm-3 col-form-label" th:text="#{registration.confirmPassword}"></label>
+      <div class="col-sm-4">
+        <input type="password" size="30" class="form-control" id="ConfirmPassword"
+               th:field="*{confirmPassword}" th:placeholder="#{registration.confirmPassword.placeholder}">
+        <p class="error-message"
+           th:each="error: ${#fields.errors('confirmPassword')}"
+           th:text="${error}">Validation error</p>
+      </div>
+    </div>
+    <div class="form-group row justify-content-center">
+      <div class="col-sm-7">
+        <input name="submit" type="submit" class="btn btn-success" th:value="#{registration.signUp.input}" />
+      </div>
+    </div>
+  </div>
+</form>
+<!-- Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

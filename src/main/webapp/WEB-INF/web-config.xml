@@ -9,6 +9,7 @@
 
   <import resource="conversion-configuration.xml"/>
   <import resource="persistence-config.xml"/>
+  <import resource="security-config.xml"/>
 
   <mvc:annotation-driven/>
   <context:component-scan base-package="com.epam"/>
@@ -50,25 +51,21 @@
     <property name="defaultLocale" value="en" />
   </bean>
 
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${app.jdbc.driverClassName}"/>
+    <property name="url" value="${app.jdbc.url}"/>
+    <property name="username" value="${app.jdbc.username}"/>
+    <property name="password" value="${app.jdbc.password}"/>
+  </bean>
+
+  <bean id="userService"
+        class="com.epam.services.UserServiceImpl">
+  </bean>
+
   <mvc:interceptors>
     <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
       <property name="paramName" value="lang" />
     </bean>
   </mvc:interceptors>
 
-  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    <property name="maxUploadSize" value="20848820"/>
-  </bean>
-
-  <bean id="pictureStorageService" class="com.epam.services.MediaStorageService">
-    <property name="albumType" value="images"/>
-  </bean>
-
-  <bean id="audioStorageService" class="com.epam.services.MediaStorageService">
-    <property name="albumType" value="audio"/>
-  </bean>
-
-  <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-    <property name="validationMessageSource" ref="messageSource"/>
-  </bean>
 </beans>

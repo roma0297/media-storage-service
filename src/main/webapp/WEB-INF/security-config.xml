@@ -8,6 +8,9 @@
                                  http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
   <http auto-config="true" use-expressions="true">
+    <logout
+        logout-success-url="/"
+        logout-url="/logout" />
     <csrf disabled="true"/>
     <form-login  login-page="/login"
                  default-target-url="/"
@@ -19,13 +22,16 @@
     <intercept-url pattern="/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
   </http>
 
-  <user-service id="userService">
-    <user name="admin" password="{noop}admin"
-          authorities="ROLE_ADMIN"/>
-    <user name="moleskin" password="{noop}mol123"
-          authorities="ROLE_USER"/>
-    <user name="keksik" password="{noop}persik2000"
-          authorities="ROLE_USER"/>
-  </user-service>
+  <authentication-manager>
+    <authentication-provider>
+      <jdbc-user-service id="userService"
+                         data-source-ref="dataSource" />
+      <password-encoder ref="encoder" />
+    </authentication-provider>
+  </authentication-manager>
+
+  <beans:bean id="encoder"
+              class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+  </beans:bean>
 
 </beans:beans>
