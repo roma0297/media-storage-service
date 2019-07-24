@@ -15,7 +15,6 @@
   <context:component-scan base-package="com.epam"/>
   <context:property-placeholder location="classpath:spring.properties"/>
 
-
   <mvc:resources mapping="/icons/**" location="/WEB-INF/templates/icons/"/>
 
   <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
@@ -67,5 +66,21 @@
       <property name="paramName" value="lang" />
     </bean>
   </mvc:interceptors>
+
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="20848820"/>
+  </bean>
+
+  <bean id="pictureStorageService" class="com.epam.services.MediaStorageService">
+    <property name="albumType" value="images"/>
+  </bean>
+
+  <bean id="audioStorageService" class="com.epam.services.MediaStorageService">
+    <property name="albumType" value="audio"/>
+  </bean>
+
+  <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+    <property name="validationMessageSource" ref="messageSource"/>
+  </bean>
 
 </beans>
