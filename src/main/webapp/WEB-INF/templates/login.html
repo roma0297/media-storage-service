@@ -14,20 +14,20 @@
     <div class="form-group row justify-content-center">
       <label for="inputLogin" class="col-sm-2 col-form-label" th:text="#{login.login}"></label>
       <div class="col-sm-4">
-        <input type="text" size="10" class="form-control" id="inputLogin"
+        <input type="text" size="30" class="form-control" id="inputLogin"
                name="username" th:placeholder="#{login.login.placeholder}">
       </div>
     </div>
     <div class="form-group row justify-content-center">
       <label for="inputPassword" class="col-sm-2 col-form-label" th:text="#{login.password}"></label>
       <div class="col-sm-4">
-        <input type="password" size="10" class="form-control" id="inputPassword"
+        <input type="password" size="30" class="form-control" id="inputPassword"
                name="password" th:placeholder="#{login.password.placeholder}">
       </div>
     </div>
     <div class="form-group row justify-content-center">
       <div class="col-sm-6">
-        <input name="submit" type="submit" th:value="#{login.singIn.input}" />
+        <input name="login-submit" type="submit" th:value="#{login.signIn.input}" />
       </div>
     </div>
   </div>
