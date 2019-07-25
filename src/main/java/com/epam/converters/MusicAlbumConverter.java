@@ -8,6 +8,7 @@ public class MusicAlbumConverter implements Converter<MusicAlbumModel, MusicAlbu
     @Override
     public MusicAlbumDto convert(MusicAlbumModel musicAlbumModel) {
         return MusicAlbumDto.builder()
+                .id(musicAlbumModel.getId())
                 .name(musicAlbumModel.getName())
                 .description(musicAlbumModel.getDescription())
                 .build();

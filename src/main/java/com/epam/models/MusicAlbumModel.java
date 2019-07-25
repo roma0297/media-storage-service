@@ -18,7 +18,7 @@ public class MusicAlbumModel extends MediaProductModel {
     private String artist;
 
     @Builder
-    public MusicAlbumModel(Integer id, String name, String description, LocalDateTime createDateTime, Integer rank, String artist) {
+    public MusicAlbumModel(Integer id, String name, String description, Integer rank, LocalDateTime createDateTime, String artist) {
         super(id, name, description, rank, createDateTime);
         this.artist = artist;
     }

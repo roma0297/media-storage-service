@@ -15,7 +15,7 @@
 
   <div class="albumForm text-center">
     <button class="btn btn-outline-secondary justify-content-center" data-toggle="modal"
-            data-target="#albumForm" th:text="#{addPictureAlbum.button}"/>
+            data-target="#albumForm" th:text="#{addAlbum.button}"/>
 
     <form th:action="@{/pictures}" th:object="${pictureAlbumForm}" method="post" enctype="multipart/form-data">
       <div class="modal fade" id="albumForm" tabindex="-1" role="dialog" aria-labelledby="albumFormLabel" aria-hidden="true">

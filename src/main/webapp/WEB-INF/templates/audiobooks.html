@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,13 +12,55 @@
 <body>
 <div th:replace="nav :: nav"></div>
 
-<div class="card-group justify-content-center">
-    <div th:each="audioBooksAlbum : ${audioBooksAlbums}">
+<div class="albumForm text-center">
+    <button class="btn btn-outline-secondary justify-content-center" data-toggle="modal"
+            data-target="#albumForm" th:text="#{addAlbum.button}"/>
+
+    <form th:action="@{/audio/audiobooks}" th:object="${audiobookAlbumsForm}" method="post" enctype="multipart/form-data">
+        <div class="modal fade" id="albumForm" tabindex="-1" role="dialog" aria-labelledby="albumFormLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="albumFormLabel" th:text="#{albumForm.title}"/>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <label class="text-center" for="name" th:text="#{albumForm.name}"/>
+                            <input class="form-control" id="name" th:field="*{name}">
+                            <span th:errors="*{name}" class="error"></span>
+                        </p>
+
+                        <p>
+                            <label for="description" th:text="#{albumForm.description}"/>
+                            <input class="form-control" id="description" th:field="*{description}"/>
+                            <span th:errors="*{description}" class="error"></span>
+                        </p>
+
+                        <p>
+                            <input type="file" id="audio" required multiple th:field="*{files}"/>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" th:text="#{button.close}"/>
+                        <button type="reset" class="btn btn-secondary" th:text="#{button.reset}"/>
+                        <button type="submit" class="btn btn-primary" th:text="#{button.save}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="card-group justify-content-center mt-3">
+    <div th:each="audiobookAlbum : ${audiobookAlbums}">
         <div class="card border-0 text-center" style="width: 18rem;">
-            <a href="/audio/audiobooks"><img src="/icons/folder_audio.png" class="rounded"></a>
+            <a th:href="@{/audio/audiobooks/{id}(id=${audiobookAlbum.id})}"><img src="/icons/folder_audiobook.png" class="rounded"></a>
             <div class="card-body">
-                <h5 class="card-title" th:text="${audioBooksAlbum.name}"></h5>
-                <p class="card-text text-center" th:text="${audioBooksAlbum.description}"></p>
+                <h5 class="card-title" th:text="${audiobookAlbum.name}"></h5>
             </div>
         </div>
     </div>

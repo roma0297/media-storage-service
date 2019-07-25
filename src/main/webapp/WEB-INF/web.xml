@@ -31,4 +31,14 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+    <servlet>
+        <servlet-name>file-servlet</servlet-name>
+        <servlet-class>com.epam.servlets.MediaFileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>file-servlet</servlet-name>
+        <url-pattern>/media/*</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
