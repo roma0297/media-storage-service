@@ -79,8 +79,13 @@
     <property name="albumType" value="audio"/>
   </bean>
 
+  <bean id="musicStorageService" class="com.epam.services.MediaStorageService">
+    <property name="albumType" value="music"/>
+  </bean>
+
   <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
     <property name="validationMessageSource" ref="messageSource"/>
   </bean>
+
 
 </beans>

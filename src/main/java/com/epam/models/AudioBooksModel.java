@@ -1,26 +1,26 @@
 package com.epam.models;
 
-import lombok.*;
-import javax.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "audio_book_tracks")
-@Builder
+@Table(name = "audio_books")
 @Getter
 @Setter
-public class AudioBooksModel {
+public class AudioBooksModel extends MediaProductModel {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "writer")
+    private String writer;
 
-    @Column(name = "rank")
-    private Integer rank;
-
-    @Column(name = "originalName")
-    private String originalName;
-
-    @Column(name = "fileSystemPath")
-    private String fileSystemPath;
+    @Builder
+    public AudioBooksModel(Integer id, String name, String description, Integer rank, LocalDateTime createDateTime, String writer) {
+        super(id, name, description, rank, createDateTime);
+        this.writer = writer;
+    }
 }

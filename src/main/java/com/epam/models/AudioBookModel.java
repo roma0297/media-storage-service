@@ -4,26 +4,27 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
+@Builder
 @Entity
-@Table(name = "audio_books")
+@Table(name = "audio_book_tracks")
 @Getter
 @Setter
-public class AudioBookModel extends MediaProductModel {
-    @Column(name = "artist")
-    private String artist;
+public class AudioBookModel {
 
-    @Column(name = "writer")
-    private String writer;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
-    @Builder
-    public AudioBookModel(Integer id, String name, String description, LocalDateTime createDateTime, Integer rank, String artist, String writer) {
-        super(id, name, description, rank, createDateTime);
-        this.artist = artist;
-        this.writer = writer;
-    }
+    @Column(name = "albumId")
+    private Integer albumId;
+
+    @Column(name = "originalName")
+    private String originalName;
+
+    @Column(name = "fileSystemPath")
+    private String fileSystemPath;
 }
+

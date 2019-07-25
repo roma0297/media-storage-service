@@ -4,14 +4,15 @@ import com.epam.facades.PicturesFacade;
 import com.epam.forms.PictureAlbumForm;
 import com.epam.forms.PictureForm;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Controller
 public class PictureAlbumsPageController {
@@ -28,7 +29,7 @@ public class PictureAlbumsPageController {
     @GetMapping("/pictures/{albumId}")
     public ModelAndView getPictureAlbumsPage(@PathVariable Integer albumId) {
         return new ModelAndView("pictureAlbum")
-                .addObject("albumInfo", picturesFacade.getPictureAlbumBy(albumId))
+                .addObject("pictureAlbumInfo", picturesFacade.getPictureAlbumBy(albumId))
                 .addObject("pictureForm", new PictureForm(albumId))
                 .addObject("pictures", picturesFacade.getPicturesBy(albumId));
     }
